@@ -212,14 +212,12 @@ canvas = Canvas(MainWindow, width=right - left,
 # 设置text段可读写
 # process.write(dec_bullet_offset, b'\x90\x90')
 
-MainWindow.mainloop()
-
 while True:
     # 鼠标左键开启自瞄(硬锁)
     if win32api.GetAsyncKeyState(0x01) != 0:
         shot_closest_enemy()
     process.write(process.get_pointer(local_player_address,
-                offsets=[player_info["health"]]), 0x7fffffff)
+                                      offsets=[player_info["health"]]), 0x7fffffff)
     esp(canvas)
     canvas.pack()
     MainWindow.update()
